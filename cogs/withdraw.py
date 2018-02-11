@@ -13,7 +13,7 @@ class Withdraw:
 
     @commands.command(pass_context=True)
     async def withdraw(self, ctx, address: str, amount: float):
-        """Withdraw coins from your account to any Phore address"""
+        """Withdraw coins from your account to any Curium address"""
         snowflake = ctx.message.author.id    
         if amount <= 0.0:
             await self.bot.say("{} **:warning:You cannot withdraw <= 0!:warning:**".format(ctx.message.author.mention))
@@ -50,7 +50,7 @@ class Withdraw:
         if txid is None:
             await self.bot.say("{} your withdraw failed despite having the necessary balance! Please contact the support team".format(ctx.message.author.mention))
         else:
-            await self.bot.say("{} **Withdrew {} PHR! :money_with_wings:**\nView the transaction here: https://chainz.cryptoid.info/phr/tx.dws?{}.htm".format(ctx.message.author.mention, str(amount), txid))
+            await self.bot.say("{} **Withdrew {} CRU! :money_with_wings:**\nView the transaction here: http://202.5.23.130:75/api/getrawtransaction?txid={}&decrpt=0".format(ctx.message.author.mention, str(amount), txid))
 
 def setup(bot):
     bot.add_cog(Withdraw(bot))

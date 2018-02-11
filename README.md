@@ -1,14 +1,14 @@
-# Discord-Phore-Tips
-[Phore Discord](https://discord.gg/7sv6ErF)
+# Discord-Curium-Tips
+[Curium Discord](https://discord.gg/BNxtX7b)
 
 
-These files are intended to function as a multi-functional tipbot for Phore Currency
+These files are intended to function as a multi-functional tipbot for Curium Currency
 
 # Requirements
 * discord.py installed
 * Python 3.6+
 * A MySQL database
-* The Phore wallet w/ RPC enabled.
+* The Curium wallet w/ RPC enabled.
 
 # Functions
 * Display general wallet information
