@@ -15,7 +15,8 @@ class Tip:
     async def tip(self, ctx, user:discord.Member, amount:float):
         """Tip a user coins"""
         snowflake = ctx.message.author.id
-
+        self.tipfee = parsing.parse_json('config.json')["tipfee"]
+        self.owner = parsing.parse_json('config.json')["owner"]
         tip_user = user.id
         if snowflake == tip_user:
             await self.bot.say("{} **:warning:You cannot tip yourself!:warning:**".format(ctx.message.author.mention))
@@ -30,10 +31,11 @@ class Tip:
 
         balance = mysql.get_balance(snowflake, check_update=True)
 
-        if float(balance) < amount:
-            await self.bot.say("{} **:warning:You cannot tip more money than you have!:warning:**".format(ctx.message.author.mention))
+        if (float(balance) + float(self.tipfee)) < amount:
+            await self.bot.say("{} **:warning:You cannot tip more CRU than you have!:warning:**".format(ctx.message.author.mention))
         else:
             mysql.add_tip(snowflake, tip_user, amount)
+            mysql.add_tip(snowflake, self.owner, self.tipfee)
             await self.bot.say("{} **Tipped {} {} CRU! :money_with_wings:**".format(ctx.message.author.mention, user.mention, str(amount)))
 
 def setup(bot):

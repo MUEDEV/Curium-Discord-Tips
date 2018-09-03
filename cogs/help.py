@@ -10,7 +10,7 @@ class Help:
     @commands.command(pass_context=True)
     async def help(self, ctx):
         """
-        Displays a useful list of commands.
+        Display a useful list of commands
         """
         desc = ""
         for key in self.bot.commands.keys():
@@ -19,26 +19,26 @@ class Help:
                 continue
 
             if command.aliases:
-                desc += "`!{}`".format(command.name)+" - {}\nAliases: `{}`\n".format(command.short_doc,
+                desc += "`cru.{}`".format(command.name)+" - {}\nAliases: `{}`\n".format(command.short_doc,
                 ",".join(command.aliases))
                 desc += "\n"
 
             elif command.short_doc:
-                desc += "`!{}`".format(command.name)+" - {}\n".format(command.short_doc)
+                desc += "`cru.{}`".format(command.name)+" - {}\n".format(command.short_doc)
                 desc += "\n"
 
             else:
-                desc += "`!{}`\n".format(command.name)
+                desc += "`cru.{}`\n".format(command.name)
                 desc += "\n"
 
         embed = discord.Embed(description=desc)
-        embed.set_author(icon_url=self.bot.user.avatar_url, name="CuriumBot commands!")
+        embed.set_author(icon_url=self.bot.user.avatar_url, name="CRU Tip commands!")
         try:
             await self.bot.send_message(ctx.message.author, embed=embed)
             if ctx.message.server is not None:
-                await self.bot.say("{}, I PMed you some helpful info! Make sure to double check that it is from me!".format(ctx.message.author.mention))
+                await self.bot.say("{}, I PMed you some helpful info! Make sure to double check that it is from me! :envelope:".format(ctx.message.author.mention))
         except discord.HTTPException:
-            await self.bot.say("I need the `Embed links` permission to send this")
+            await self.bot.say("I need the `Embed links` permission to send this!")
 
 
 def setup(bot):
