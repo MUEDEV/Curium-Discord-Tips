@@ -19,20 +19,20 @@ class Help:
                 continue
 
             if command.aliases:
-                desc += "`cru.{}`".format(command.name)+" - {}\nAliases: `{}`\n".format(command.short_doc,
+                desc += "`mue.{}`".format(command.name)+" - {}\nAliases: `{}`\n".format(command.short_doc,
                 ",".join(command.aliases))
                 desc += "\n"
 
             elif command.short_doc:
-                desc += "`cru.{}`".format(command.name)+" - {}\n".format(command.short_doc)
+                desc += "`mue.{}`".format(command.name)+" - {}\n".format(command.short_doc)
                 desc += "\n"
 
             else:
-                desc += "`cru.{}`\n".format(command.name)
+                desc += "`mue.{}`\n".format(command.name)
                 desc += "\n"
 
         embed = discord.Embed(description=desc)
-        embed.set_author(icon_url=self.bot.user.avatar_url, name="CRU Tip commands!")
+        embed.set_author(icon_url=self.bot.user.avatar_url, name="MUE Tip commands!")
         try:
             await self.bot.send_message(ctx.message.author, embed=embed)
             if ctx.message.server is not None:
