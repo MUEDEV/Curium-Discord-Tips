@@ -12,11 +12,11 @@ class Stats:
     @commands.command()
     async def stats(self, amount=1):
         """
-        Show stats about CRU
+        Show stats about MUE
         """
         headers={"user-agent" : "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36"}
         try:
-                    btcapi = 'https://coinlib.io/api/v1/coin?key=7f291e8e177748eb&pref=BTC&symbol=CRU'
+                    btcapi = 'https://coinlib.io/api/v1/coin?key=7f291e8e177748eb&pref=BTC&symbol=MUE'
                     btcprice = requests.get(btcapi)
                     volume = btcprice.json()['total_volume_24h']
                     low = btcprice.json()['low_24h']
