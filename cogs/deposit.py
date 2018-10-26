@@ -15,7 +15,7 @@ class Deposit:
         # Check if user exists in db
         mysql.check_for_user(user.id)
         user_addy = mysql.get_address(user.id)
-        await self.bot.say(user.mention + "'s Deposit Address: `" + str(user_addy) + "`" + "\n\nRemember to use cru.balance to check your balance and not an explorer. The address balance and your actual balance are not always the same!")
+        await self.bot.say(user.mention + "'s Deposit Address: `" + str(user_addy) + "`" + "\n\nRemember to use mue.balance to check your balance and not an explorer. The address balance and your actual balance are not always the same!")
 
 def setup(bot):
     bot.add_cog(Deposit(bot))
