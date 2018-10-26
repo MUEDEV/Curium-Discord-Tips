@@ -65,7 +65,7 @@ class Soak:
 
         amount_split = math.floor(float(amount) * 1e8 / len_receivers) / 1e8
         if amount_split == 0:
-            await self.bot.say("{} **:warning: {} CRU is not enough to split between {} users! :warning:**".format(ctx.message.author.mention, amount, len_receivers))
+            await self.bot.say("{} **:warning: {} MUE is not enough to split between {} users! :warning:**".format(ctx.message.author.mention, amount, len_receivers))
             return
         receivers = []
         for i in range(int(len_receivers)):
@@ -74,10 +74,10 @@ class Soak:
             online_users.remove(user)
             mysql.check_for_user(user.id)
             mysql.add_tip(snowflake, user.id, amount_split)
-        long_soak_msg = ":moneybag: {} **Soaked {} CRU on {} [Total {} CRU]** :moneybag: ".format(ctx.message.author.mention, str(amount_split), ', '.join([x.mention for x in receivers]), str(amount))
+        long_soak_msg = ":moneybag: {} **Soaked {} MUE on {} [Total {} MUE]** :moneybag: ".format(ctx.message.author.mention, str(amount_split), ', '.join([x.mention for x in receivers]), str(amount))
 
         if len(long_soak_msg) > 2000:
-            await self.bot.say(":moneybag: {} **Soaked {} CRU on {} users [{}]** :moneybag: ".format(ctx.message.author.mention, str(amount_split), len_receivers, str(amount)))
+            await self.bot.say(":moneybag: {} **Soaked {} MUE on {} users [{}]** :moneybag: ".format(ctx.message.author.mention, str(amount_split), len_receivers, str(amount)))
         else:
             await self.bot.say(long_soak_msg)
 
