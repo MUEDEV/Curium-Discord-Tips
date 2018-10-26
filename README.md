@@ -1,13 +1,13 @@
-# CRU-Tip-Bot
+# MUE-Tip-Bot
 
 
-These files are intended to function as a multi-functional tipbot for Bitcoin With Spectrum (CRU)
+These files are intended to function as a multi-functional tipbot for Bitcoin With MonetaryUnit (MUE)
 
 # Requirements
 * discord.py installed
 * Python 3.6+
 * A MySQL database
-* The CRU wallet w/ RPC enabled.
+* The MUE wallet w/ RPC enabled.
 
 # Functions
 * Display general wallet information
