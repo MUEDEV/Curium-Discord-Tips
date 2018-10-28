@@ -26,8 +26,10 @@
             "soak_min_received": 0.0001,
             "use_min_received": true
         },
+        "tipfee": 0,
         "txfee": 0,
         "owners": ["put your discord id here"],
+        "owner": ["put your discord id here"],
         "prefix": "mue.",
         "description": "MUE Tipbot"
     }
